@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'django_elasticsearch_dsl',
     'article',
-    'user'
+    'user',
+    'search'
 ]
 
 MIDDLEWARE = [
@@ -80,12 +82,18 @@ WSGI_APPLICATION = 'django_elastic.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_elastic', 
-        'USER': 'postgres', 
+        'NAME': 'django_elastic',
+        'USER': 'postgres',
         'PASSWORD': 'Vishnu26@',
-        'HOST': '127.0.0.1', 
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
+}
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'localhost:9200'
+    },
 }
 
 

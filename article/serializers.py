@@ -1,8 +1,9 @@
 from rest_framework import serializers
+
 from .models import Category,Article
 from user.models import User
-
 from user.serializers import UserSerializer
+from .documents import ArticleDocument
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -25,9 +26,16 @@ class ArticleSerializer(serializers.ModelSerializer):
 
         for _category in categories:
             article.categories.add(_category)
-        
+
         return article
 
     class Meta:
         model= Article
         fields='__all__'
+
+
+# class ArticleDocumentSerializer(DocumentSerializer):
+# 
+#     class Meta:
+#         document = ArticleDocument
+#         fields = '__all__'
